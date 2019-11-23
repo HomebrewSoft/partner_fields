@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="partner_fields_partner_view">
+        <field name="name">partner.fields.partner.view</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="name" position="after">
+                    <br/>
+                    <field name="activity_id" widget="many2many_tags"/>
+                </field>
+                <field name="country_id" position="before">
+                    <field name="barrio" placeholder="Barrio"/>
+                    <field name="referencia" placeholder="Referencia"/>
+                </field>
+                <field name="vat" position="after">
+                    <field name="phone2" widget="phone"/>
+                    <field name="mobile2" widget="phone"/>
+                    <!-- <field name="cia_tag_id"/> -->
+                </field>
+            </data>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_parent_id_search">
+        <field name="name">res.partner.parent_id.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="after">
+                <separator/>
+                <field name="cia_tag_id" filter_domain="[('cia_tag_id','ilike',self)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>
