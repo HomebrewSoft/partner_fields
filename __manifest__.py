@@ -6,7 +6,6 @@
     'author': 'Oscar Ramirez',
     'website': 'https://github.com/HomebrewSoft/partner_fields.git',
     'depends': [
-        'fecr'
     ],
     'data': [
         'views/res_partner_view.xml'
